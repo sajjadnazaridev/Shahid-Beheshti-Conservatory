@@ -1,0 +1,613 @@
+@font-face {
+    font-family: 'yekan';
+    src: url(../fonts/IRANYekanWebRegular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'yekan';
+    background-color: #eeeeee;
+}
+
+:root {
+    scroll-behavior: smooth;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: rgba(238, 238, 238, 0.5);
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 10%);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    z-index: 3;
+}
+
+.logo {
+    display: inline-block;
+    height: 80px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.menu {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 40px 30px;
+    margin: auto;
+}
+
+.menu ul {
+    display: none;
+    position: absolute;
+    border-radius: 25px;
+    top: 6.8rem;
+    right: 10rem;
+}
+
+.dropdown-content {
+    background-color: rgba(238, 238, 238, 0.5);
+}
+
+.menu .dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 25px;
+    top: 6.8rem;
+    right: 19.5rem;
+}
+
+.menu .dropdown-content li {
+    display: inline;
+    padding: 15px 30px;
+}
+
+.header .menu li:hover>ul {
+    display: inherit;
+    background-color: rgba(238, 238, 238, 0.9);
+}
+
+.header .menu ul li {
+    width: auto;
+    float: none;
+    display: block;
+    position: relative;
+}
+
+li>a:after {
+    content: ' +';
+}
+
+li>a:only-child:after {
+    content: '';
+}
+
+.menu li a {
+    display: inline-block;
+    margin-left: 3px;
+    text-decoration: none;
+    color: #041562;
+    transition: 0.3s;
+}
+
+.menu li a:hover {
+    font-weight: bold;
+}
+
+.menu li a::after {
+    content: '';
+    display: block;
+    margin-top: 5px;
+    width: 0;
+    height: 3px;
+    background: #041562;
+    transition: width .3s;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+.menu li i {
+    color: #041562;
+}
+
+/* login button */
+
+button {
+    direction: ltr;
+    position: absolute;
+    left: 6rem;
+    bottom: 3rem;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.login-btn {
+    width: 12rem;
+    height: auto;
+}
+
+button.login-btn .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    background: #041562;
+    border-radius: 1.625rem;
+}
+
+button.login-btn .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.login-btn .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.2rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.login-btn .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0725rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.login-btn .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 0.4;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+    animation: arrowani 0.6s ease-in-out infinite alternate;
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+@keyframes arrowani {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #11468F;
+    border-radius: 50px;
+    box-shadow: 0 0 5px gray;
+}
+
+.sub {
+    text-align: center;
+    padding: 32px;
+    color: #041562;
+}
+
+.row {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap;
+    /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 25%;
+    /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    border-radius: 11px;
+    width: 100%;
+}
+
+  
+  label {
+    display: flex;
+    align-items: center;
+  }
+  
+  svg {
+    cursor: pointer;
+    overflow: visible;
+    width: 60px;
+    border-radius: 50%;
+    padding: 2px;
+    transition: .2s ease;
+  }
+  svg:hover {
+    background: rgba(224, 36, 94, 0.1);
+  }
+  svg:hover #heart {
+    stroke: #e0245e;
+  }
+  svg:active {
+    background: rgba(224, 36, 94, 0.2);
+  }
+  svg #heart {
+    transform-origin: center;
+    fill: transparent;
+    stroke: #5b7083;
+    stroke-width: 2px;
+    transition: .2s ease;
+  }
+  svg .circle {
+    transform-origin: 29.5px 29.5px;
+  }
+  
+  #checkbox {
+    display: none;
+  }
+  
+  #checkbox:checked + label svg #heart {
+    transform: scale(0);
+    fill: #e0245e;
+    stroke: #e0245e;
+    animation: heart 0.25s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  #checkbox:checked + label svg .circle {
+    animation: circle .25s forwards;
+  }
+  #checkbox:checked + label svg #grp1 {
+    opacity: 1;
+    transition: 0.1s 0.2s;
+  }
+  #checkbox:checked + label svg #grp1 #oval1 {
+    transform: scale(0) translate(0, -30px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp1 #oval2 {
+    transform: scale(0) translate(10px, -50px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp2 {
+    opacity: 1;
+    transition: 0.1s 0.2s;
+  }
+  #checkbox:checked + label svg #grp2 #oval1 {
+    transform: scale(0) translate(30px, -15px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp2 #oval2 {
+    transform: scale(0) translate(60px, -15px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp3 {
+    opacity: 1;
+    transition: 0.1s 0.2s;
+  }
+  #checkbox:checked + label svg #grp3 #oval1 {
+    transform: scale(0) translate(30px, 0px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp3 #oval2 {
+    transform: scale(0) translate(60px, 10px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp4 {
+    opacity: 1;
+    transition: 0.1s 0.2s;
+  }
+  #checkbox:checked + label svg #grp4 #oval1 {
+    transform: scale(0) translate(30px, 15px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp4 #oval2 {
+    transform: scale(0) translate(40px, 50px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp5 {
+    opacity: 1;
+    transition: 0.2s all 0.2s;
+  }
+  #checkbox:checked + label svg #grp5 #oval1 {
+    transform: scale(0) translate(-10px, 20px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp5 #oval2 {
+    transform: scale(0) translate(-60px, 30px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp6 {
+    opacity: 1;
+    transition: 0.2s 0.2s;
+  }
+  #checkbox:checked + label svg #grp6 #oval1 {
+    transform: scale(0) translate(-30px, 0px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp6 #oval2 {
+    transform: scale(0) translate(-60px, -5px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp7 {
+    opacity: 1;
+    transition: 0.2s 0.2s;
+  }
+  #checkbox:checked + label svg #grp7 #oval1 {
+    transform: scale(0) translate(-30px, -15px);
+    transform-origin: 0 0 0;
+    transition: 0.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp7 #oval2 {
+    transform: scale(0) translate(-55px, -30px);
+    transform-origin: 0 0 0;
+    transition: 1.2s transform 0.2s;
+  }
+  #checkbox:checked + label svg #grp2 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  #checkbox:checked + label svg #grp3 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  #checkbox:checked + label svg #grp4 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  #checkbox:checked + label svg #grp5 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  #checkbox:checked + label svg #grp6 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  #checkbox:checked + label svg #grp7 {
+    opacity: 1;
+    transition: 0.2s opacity 0.2s;
+  }
+  
+  .numbers {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    color: #5b7083;
+    overflow: hidden;
+    padding-left: 3px;
+    display: flex;
+    flex-flow: column;
+    transition: .2s ease;
+    user-select: none;
+    position: relative;
+  }
+  
+  svg:hover + .numbers, #checkbox:checked + label .numbers {
+    color: #e0245e;
+  }
+  
+  .num1, .num2 {
+    display: block;
+    transition: .3s transform;
+  }
+  
+  .num2 {
+    position: absolute;
+    transform: translateY(100%);
+  }
+  
+  #checkbox:checked + label .numbers .num1 {
+    transform: translateY(-100%);
+  }
+  
+  #checkbox:checked + label .numbers .num2 {
+    transform: none;
+  }
+  
+  @keyframes circle {
+    from {
+      transform: scale(0) translateY(-0.05px);
+      stroke-width: 3px;
+    }
+    50% {
+      transform: scale(6) translateY(-0.05px);
+      stroke-width: 3px;
+    }
+    to {
+      transform: scale(15) translateY(-0.05px);
+      stroke-width: 0;
+    }
+  }
+  @keyframes heart {
+    from {
+      transform: scale(0.2);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+.footer-section {
+    width: 100%;
+    display: flex;
+    color: #11468F;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    background-color: rgb(218, 218, 218);
+}
+
+.heading-2 {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.heading-2::after {
+    content: '';
+    width: 4rem;
+    height: .2rem;
+    background: #e65b00;
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+}
+
+.heading-2 {
+    transition: all .2s linear;
+}
+
+.footer-section span {
+    font-size: 25px;
+}
+
+.footer-section p {
+    font-size: 20px;
+    transition: all .2s linear;
+    margin-bottom: .6em;
+}
+
+.footer-section a {
+    color: #11468F;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.footer-section p:hover {
+    transition: all .2s linear;
+    transform: translateX(-7px);
+}
+
+.footer-section a:hover {
+    color: #11468F;
+}
+
+.footer-item {
+    margin: 1rem;
+}
+
+.footer-item ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.footer-item li {
+    margin-right: 1rem;
+}
+
+.footer-section .social ul li {
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.social ul li:hover {
+    transform: scale(1.1);
+    transition: all .2s linear;
+}
+
+.footer-section .social ul li img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
